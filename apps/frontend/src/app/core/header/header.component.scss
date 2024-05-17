@@ -1,0 +1,36 @@
+@import '../../../styles.scss';
+
+.spacer {
+    flex: 1 1 auto;
+}
+
+.toolbar {
+    background: $primary-color;
+
+    .logo {
+        max-width: 3em;
+        margin-top: 1em;
+        margin-bottom: 0.5em;
+    }
+
+    a {
+        color: white;
+        text-decoration: none;
+        display: flex;
+        margin: 0;
+        transition: background-color 0.1s ease-in-out;
+        padding: 1em;
+
+        &:hover {
+            background-color: #292a45;
+          }
+      
+          &:active {
+            background-color: #1b1c2e;
+          }
+
+        mat-icon {
+            margin-right: 0.1em;
+        }
+    }
+}

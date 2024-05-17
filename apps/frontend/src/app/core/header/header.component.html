@@ -1,1 +1,22 @@
-<p>header works!</p>
+<mat-toolbar class="toolbar">
+  <span><img [routerLink]="['/home']" src="/assets/images/GameDBlogo.png" class="logo" alt="logo"></span>
+  <a mat-button [routerLink]="['/home']" routerLinkActive="active" matTooltip="Home page"><mat-icon class="material-symbols-outlined">home</mat-icon><span>Home</span></a>
+  <a mat-button [routerLink]="['/games']" routerLinkActive="active" matTooltip="All the games avaiable"><mat-icon class="material-icons">sports_esports</mat-icon><span>Games</span></a>
+  <!-- <mat-form-field class="searchbar" appearance="outline">
+    <mat-label class="search-label">Search for games_<mat-icon class="material-symbols-outlined">stadia_controller</mat-icon></mat-label>
+    <input matInput type="text">
+    <button matSuffix mat-icon-button aria-label="Clear" #filter>
+      <mat-icon class="material-symbols-outlined">close</mat-icon>
+    </button>
+  </mat-form-field> -->
+  <span class="spacer"></span>
+  <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+    <mat-icon>favorite</mat-icon>Log In
+  </button>
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+    <mat-icon>share</mat-icon>Register
+  </button>
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+    <mat-icon>menu</mat-icon>
+  </button>
+</mat-toolbar>
