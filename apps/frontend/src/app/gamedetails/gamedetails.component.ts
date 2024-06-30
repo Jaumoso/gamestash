@@ -6,6 +6,6 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './gamedetails.component.html',
-  styleUrl: './gamedetails.component.css',
+  styleUrl: './gamedetails.component.scss',
 })
 export class GamedetailsComponent {}

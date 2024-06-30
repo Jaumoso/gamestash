@@ -6,6 +6,6 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './library.component.html',
-  styleUrl: './library.component.css',
+  styleUrl: './library.component.scss',
 })
 export class LibraryComponent {}
