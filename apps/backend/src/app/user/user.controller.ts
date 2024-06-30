@@ -1,4 +1,4 @@
-import { Body, ConflictException, Controller, Delete, Get, HttpException, HttpStatus, NotFoundException, Param, Post, Put, Res } from '@nestjs/common';
+import { Body, ConflictException, Controller, Delete, Get, HttpException, HttpStatus, NotFoundException, Param, Post, Put, Res, UseGuards } from '@nestjs/common';
 import { ApiCreatedResponse, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { UserService } from './user.service';
 import { CreateUserDto } from './dto/create-user.dto'
@@ -12,16 +12,17 @@ export class UserController {
     constructor(private readonly userService: UserService){}
 
     @Get()
-    @ApiCreatedResponse({ description: 'Toda la información de los usuarios.' })
-    async getUsers(@Res() response) {
+    @ApiCreatedResponse({ description: 'All users info.' })
+    @ApiResponse({
+        status: HttpStatus.BAD_REQUEST,
+        description: 'Error: Could not get all the users info!'
+    })
+    async getUsers() {
         try {
-            const userData = await this.userService.getAllUsers();
-            return response.status(HttpStatus.OK).json({
-                message: 'All users data found successfully', userData,
-            });
+            return await this.userService.getAllUsers();
         }
         catch (err) {
-            return response.status(err.status).json(err.response);
+            throw new HttpException('Error: Could not get all the users info!', HttpStatus.BAD_REQUEST)
         }
     }
 

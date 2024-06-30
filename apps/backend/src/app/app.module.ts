@@ -5,6 +5,9 @@ import { AppService } from './app.service';
 import { MongooseModule } from '@nestjs/mongoose';
 import { UserModule } from './user/user.module';
 import { AuthModule } from './auth/auth.module';
+import { GameModule } from './game/game.module';
+import { IgdbModule } from './igdb/igdb.module';
+import { StorefrontModule } from './storefront/storefront.module';
 
 @Module({
   imports: [
@@ -19,6 +22,9 @@ import { AuthModule } from './auth/auth.module';
     }),
     UserModule,
     AuthModule,
+    GameModule,
+    IgdbModule,
+    StorefrontModule,
   ],
   controllers: [AppController],
   providers: [AppService],

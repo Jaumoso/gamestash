@@ -1,6 +1,6 @@
 import { Logger } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
-
+import helmet from 'helmet';
 import { AppModule } from './app/app.module';
 import { DocumentBuilder, SwaggerCustomOptions, SwaggerDocumentOptions, SwaggerModule } from '@nestjs/swagger';
 
@@ -15,6 +15,7 @@ async function bootstrap() {
   .setDescription('GameStash API documentation.')
   .setVersion('1.0')
   .setContact('Jaume C', 'https://github.com/Jaumoso', 'jaumecvr2000@gmail.com')
+  .addBearerAuth()
   .build();
   const swaggerOptions: SwaggerDocumentOptions = {
     deepScanRoutes: true,
@@ -26,6 +27,8 @@ async function bootstrap() {
 
   const globalPrefix = 'v1';
   app.setGlobalPrefix(globalPrefix)
+
+  app.use(helmet());
 
   const swaggerCustomOptions: SwaggerCustomOptions = {
     customSiteTitle: 'GameDB API Docs',

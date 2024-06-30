@@ -7,7 +7,6 @@ export class CreateUserDto {
         type: String, 
         description: 'Username of the account.',
         example: "nickname",
-        
     })
     @IsNotEmpty()
     @IsString()
